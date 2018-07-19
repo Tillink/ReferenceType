@@ -8,43 +8,30 @@ namespace ReferenceType
 {
     class Program
     {
-        static int MAX = 4;
-
         static void Main(string[] args)
         {
-            short a = 1;
-            short b = 2;
-            Swap(&a, &b);
-            Console.WriteLine(a);
-            Console.WriteLine(b);
-            return;
-
+            Cat c = new Cat();
+            GrowCat(ref c);
+            Console.WriteLine(c.Age);
 
             Lion l = new Lion();
-            GrowLion(l);
+            GrowLion(ref l);
             Console.WriteLine(l.Age);
 
-            Cat c = new Cat();
-            GrowCat(c);
-            Console.WriteLine(c.Age);
+            foo();
         }
 
-        static void Swap(short* i, short* j)
+        private static void foo()
         {
-            //short i = 1;
-            //short j = 2;
-
-            short t = *i;
-            *i = *j;
-            *j = t;
+            Lion l1 = new Lion();
         }
 
-        static void GrowLion(Lion a)
+        static void GrowLion(ref Lion a)
         {
             a.Age++;
         }
 
-        static void GrowCat(Cat a) // overloading
+        static void GrowCat(ref Cat a) // overloading
         {
             a.Age++;
         }
