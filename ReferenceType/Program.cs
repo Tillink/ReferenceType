@@ -10,30 +10,15 @@ namespace ReferenceType
     {
         static void Main(string[] args)
         {
-            Cat c = new Cat();
-            GrowCat(ref c);
-            Console.WriteLine(c.Age);
+            Cat c1= new Cat();
+            Cat c2 = c1;
+            c2.Age++;
+            Console.WriteLine(c1.Age);
 
-            Lion l = new Lion();
-            GrowLion(ref l);
-            Console.WriteLine(l.Age);
-
-            foo();
-        }
-
-        private static void foo()
-        {
             Lion l1 = new Lion();
-        }
-
-        static void GrowLion(ref Lion a)
-        {
-            a.Age++;
-        }
-
-        static void GrowCat(ref Cat a) // overloading
-        {
-            a.Age++;
+            Lion l2 = l1;
+            l2.Age++;
+            Console.WriteLine(l1.Age);
         }
     }
 }
